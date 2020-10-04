@@ -4,4 +4,5 @@
 # Environments
 .env
 env/
+env/*
 env.bak/
