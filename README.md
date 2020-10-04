@@ -13,7 +13,8 @@ A simple command line program which randomly selects a name from a list.
 - Go to the directory of the project.
 - Create a virtual environment, e.g., `virtualenv env`.
 - Activate the virtual environment, e.g.,  `source env/bin/activate`
-- Run the program, i.e., `python3 name-roulette.py`
+- Install the dependencies--`pip install -r requirements.txt`
+- Run the program--`python3 name-roulette.py`
 
 ## Author
 - Joie Llantero
