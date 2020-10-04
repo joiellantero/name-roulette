@@ -7,34 +7,20 @@ import sys
 import os
 
 name = []
-i = 0
 again = 0
 sleep_time = 1
 
 # loading animation
-def animate():
-    for c in itertools.cycle(['|', '/', '-', '\\']):
-        if done:
-            break
-        sys.stdout.write('\rchoosing someone... ' + c)
-        sys.stdout.flush()
-        time.sleep(0.1)
-
-# take all the names
-while (i != 'done'):
-    i = input('Enter name: ')
-    if i != 'done':
-        name.append(i)
-
-# choose a random name from list name
-while (True):
-    chosen_name = random.choice(name)
-
-    # clear terminal
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    # do loading animation
+def loading_animation():
     done = False
+
+    def animate():
+        for c in itertools.cycle(['|', '/', '-', '\\']):
+            if done:
+                break
+            sys.stdout.write('\rchoosing someone... ' + c)
+            sys.stdout.flush()
+            time.sleep(0.1)
 
     t = threading.Thread(target=animate)
     t.start()
@@ -43,13 +29,75 @@ while (True):
     time.sleep(sleep_time)
     done = True
 
-    # clear terminal
+def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    # display the chosen name
-    print(dragon(chosen_name))
-    again = input("Again? [y/n]: ")
-    if (again == 'y' or again == 'Y'):
-        continue
-    else:
-        break
+def get_names():
+    i = 0
+    # take all the names
+    while (i != 'done'):
+        i = input('Enter name: ')
+        if i != 'done':
+            name.append(i)
+
+def repeat_forever():
+    get_names()
+    # choose a random name from list name
+    while (True):
+        chosen_name = random.choice(name)
+
+        # clear terminal
+        clear_terminal()
+
+        # do loading animation
+        loading_animation()
+
+        # clear terminal
+        clear_terminal()
+
+        # display the chosen name
+        print(dragon(chosen_name))
+        again = input("Again? [y/n]: ")
+        if (again == 'y' or again == 'Y'):
+            continue
+        else:
+            break
+
+def repeat_until_last():
+    get_names()
+    # choose a random name from list name
+    while (True):
+        chosen_name = random.choice(name)
+
+        # clear terminal
+        clear_terminal()
+
+        # do loading animation
+        loading_animation()
+
+        # clear terminal
+        clear_terminal()
+
+        # display the chosen name
+        print(dragon(chosen_name))
+        name.remove(chosen_name)
+        again = input("Again? [y/n]: ")
+        if ((again == 'y' or again == 'Y') and len(name)!=0):
+            continue
+        else:
+            if len(name)==0:
+                print("No more names to choose from")
+            break
+
+print("Commands:\n1 - repeat until last person\n2 - repeat forever")
+cmd = input("choice [1/2]: ")
+
+# repeat until last person
+if (int(cmd) == 1):
+    repeat_until_last()
+# repeat forever
+elif (int(cmd) == 2):
+    repeat_forever()
+# error handling for invalid input
+else:
+    print("Error: Invalid Choice!")
