@@ -9,7 +9,7 @@ A simple command line program which randomly selects a name from a list.
 - Select a random name (without removing it from the list) forever.
 
 ## Installation
-- Download the release 1.0 or clone the repository at `https://github.com/joiellantero/name-roulette.git`.
+- Download the release v1.0.0 or clone the repository at `https://github.com/joiellantero/name-roulette.git`.
 - Go to the directory of the project.
 - Create a virtual environment, e.g., `virtualenv env`.
 - Activate the virtual environment, e.g.,  `source env/bin/activate`
