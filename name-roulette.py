@@ -35,6 +35,7 @@ def clear_terminal():
 def get_names():
     i = 0
     # take all the names
+    print("Please enter all the names then type 'done' when you're finished.")
     while (i != 'done'):
         i = input('Enter name: ')
         if i != 'done':
