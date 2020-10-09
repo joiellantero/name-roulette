@@ -11,7 +11,7 @@ A simple command line program which randomly selects a name from a list.
 
 ## Installation
 > Prerequisite: Python 3 must be installed.
-- Download the release v1.0.0 or clone the repository at `https://github.com/joiellantero/name-roulette.git`.
+- Download the latest release or clone the repository at `https://github.com/joiellantero/name-roulette.git`.
 - Go to the directory of the project.
 - Create a virtual environment, e.g., `virtualenv env`.
 - Activate the virtual environment, e.g.,  `source env/bin/activate`
