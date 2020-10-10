@@ -41,6 +41,23 @@ def get_names():
         if i != 'done':
             name.append(i)
 
+def repeat():
+    again = input("Again? [y/n]: ")
+    if ((again == 'y' or again == 'Y') and len(name)!=0):
+        return
+    else:
+        while again != 'n' and again != 'y':
+            print("Choices: y for yes or n for no.")
+            again = input("Again? [y/n]: ")
+        if (again == 'n'):
+            print("Program ended")
+            sys.exit(0)
+        elif (again == 'y' or again == 'Y') and len(name)==0:
+            print("No more names to choose from")
+            sys.exit(0)
+        else:
+            return
+
 def repeat_forever():
     get_names()
     # choose a random name from list name
@@ -58,11 +75,7 @@ def repeat_forever():
 
         # display the chosen name
         print(dragon(chosen_name))
-        again = input("Again? [y/n]: ")
-        if (again == 'y' or again == 'Y'):
-            continue
-        else:
-            break
+        repeat()
 
 def repeat_until_last():
     get_names()
@@ -82,13 +95,7 @@ def repeat_until_last():
         # display the chosen name
         print(dragon(chosen_name))
         name.remove(chosen_name)
-        again = input("Again? [y/n]: ")
-        if ((again == 'y' or again == 'Y') and len(name)!=0):
-            continue
-        else:
-            if len(name)==0:
-                print("No more names to choose from")
-            break
+        repeat()
 
 print("Commands:\n1 - repeat until last person\n2 - repeat forever")
 cmd = input("choice [1/2]: ")
