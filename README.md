@@ -20,8 +20,5 @@ A simple command line program which randomly selects a name from a list.
 ## Author
 - Joie Llantero
 
-## Contributors
-- Feel free to send a pull request
-
 ## License
 - [MIT license](http://opensource.org/licenses/mit-license.php)
