@@ -5,24 +5,63 @@ A simple command line program which randomly selects a name from a list.
 ![Downloads](https://img.shields.io/github/downloads/joiellantero/name-roulette/total?style=flat-square)
 
 ## Features
-- Enter and store names to be used.
-- Select a random name (and remove it from the list) until the list is empty.
-- Select a random name (without removing it from the list) forever.
 
-## Installation
+1. Read `.csv` and `.txt` files.
+2. Settings
+   
+    | Flags        | Desciption     |
+    |--------------|----------------|
+    | `--repeat`   | With flag: select a random name (without removing it from the list) forever. <br> Without flag: select a random name (and remove it from the list) until the list is empty. |
+    | `--display`  | Show the list of names. |
+
+## Getting Started
+
 > Prerequisite: Python 3 must be installed.
-- Download the latest release or clone the repository at `https://github.com/joiellantero/name-roulette.git`.
-- Go to the directory of the project.
-- Create a virtual environment, e.g., `virtualenv env`.
-- Activate the virtual environment, e.g.,  `source env/bin/activate`
-- Install the dependencies--`pip install -r requirements.txt`
-- Run the program--`python3 name-roulette.py`
+
+- Download the latest release or clone the repository
+  
+    ```shell
+    git clone https://github.com/joiellantero/name-roulette.git
+    ```
+
+- Navigate to the directory of the project.
+- Create a virtual environment.
+
+    ```shell
+    virtualenv env
+    ```
+
+- Activate the virtual environment.
+
+    > for macOS and linux
+
+    ```shell
+    source env/bin/activate
+    ```
+
+    > for windows
+
+    ```shell
+    Scripts/activate.bat
+    ```
+
+- Install the dependencies
+
+    ```shell
+    pip install -r requirements.txt
+    ```
+
+- Run the program
+
+    ```shell
+    python3 name-roulette.py <fileName> <flags>
+    python3 name-roulette.py name.csv --repeat --display
+    ```
 
 ## Author
+
 - Joie Llantero
 
-## Contributors
-- Feel free to send a pull request
-
 ## License
+
 - [MIT license](http://opensource.org/licenses/mit-license.php)
