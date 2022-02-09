@@ -1,19 +1,17 @@
-from cowsay import *
-import random
+import cowsay
 import itertools
 import threading
 import time
 import sys
 import os
+import argparse
+import pandas as pd
 
-name = []
 again = 0
 sleep_time = 1
 
-# loading animation
 def loading_animation():
     done = False
-
     def animate():
         for c in itertools.cycle(['|', '/', '-', '\\']):
             if done:
@@ -21,91 +19,80 @@ def loading_animation():
             sys.stdout.write('\rchoosing someone... ' + c)
             sys.stdout.flush()
             time.sleep(0.1)
-
     t = threading.Thread(target=animate)
     t.start()
-
-    #long process here
     time.sleep(sleep_time)
     done = True
 
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def get_names():
-    i = 0
-    # take all the names
-    print("Please enter all the names then type 'done' when you're finished.")
-    while (i != 'done'):
-        i = input('Enter name: ')
-        if i != 'done':
-            name.append(i)
-
-def repeat():
-    again = input("Again? [y/n]: ")
-    if ((again == 'y' or again == 'Y') and len(name)!=0):
+def ask_choose_again():
+    again = input("Choose again? [Y/N]: ")
+    if (again == 'y' or again == 'Y'):
         return
+    elif again == 'n' or again == 'N':
+        print("\nProgram ended.")
+        sys.exit(0)
     else:
-        while again != 'n' and again != 'y':
-            print("Choices: y for yes or n for no.")
-            again = input("Again? [y/n]: ")
-        if (again == 'n'):
-            print("Program ended")
-            sys.exit(0)
-        elif (again == 'y' or again == 'Y') and len(name)==0:
-            print("No more names to choose from")
-            sys.exit(0)
-        else:
-            return
+        print("Invalid input: type Y for yes or N for no.")
+        ask_choose_again()
 
-def repeat_forever():
-    get_names()
-    # choose a random name from list name
-    while (True):
-        chosen_name = random.choice(name)
-
-        # clear terminal
+def draw_name(df, repeat, display):
+    while not df.empty:
         clear_terminal()
-
-        # do loading animation
         loading_animation()
-
-        # clear terminal
         clear_terminal()
+        chosen_name = df.sample()
+        chosen_name = df.loc[chosen_name.index[0], 'Names']
+        if not repeat:
+            try:
+                df = df[df["Names"].str.contains(chosen_name)==False]
+            except NameError:
+                print(NameError)
+        if display and not df.empty:
+            print(df)
+        cowsay.tux(chosen_name)
+        print('')
+        ask_choose_again()
+    else:
+        print("\nProgram Ended.\nList of names is now empty.")
+        sys.exit(0)
 
-        # display the chosen name
-        print(dragon(chosen_name))
-        repeat()
+def get_names(filename):
+    try:
+        names_df = pd.read_csv(filename, sep=",", header=None, names=["Names"])
+        names_df['Names'] = names_df['Names'].astype('string')
+        return names_df
+    except FileNotFoundError:
+        print(f"\nFile '{filename}' does not exist.")
+        if filename[-4:] != '.csv' and filename[-4:] != '.txt':
+            print(f"Please include file type, e.g., {filename}.txt or {filename}.csv.")
+        sys.exit(0)
 
-def repeat_until_last():
-    get_names()
-    # choose a random name from list name
-    while (True):
-        chosen_name = random.choice(name)
+if __name__=="__main__":
+    parser = argparse.ArgumentParser(description='Name Roulette v2.0.0. A random picker for names. A digital terminal script based on the game spin the bottle.')
 
-        # clear terminal
-        clear_terminal()
+    parser.add_argument(
+        'file', 
+        metavar='filename', 
+        type=str, 
+        help='Files accepted are csv and txt files. Add the filename of the text or csv file containing the names as an argument, e.g., fileName.csv. Each name should be entered in a new line. You may refer to the README.md to see more examples.'
+    )
 
-        # do loading animation
-        loading_animation()
+    parser.add_argument(
+        '--repeat', 
+        action="store_true", 
+        required=False,
+        help='Loop through the names of the players forever. Not including the --repeat flag will remove the player from the list once they are chosen.'
+    )
 
-        # clear terminal
-        clear_terminal()
+    parser.add_argument(
+        '--display', 
+        action="store_true", 
+        required=False,
+        help='Show the list of names.'
+    )
 
-        # display the chosen name
-        print(dragon(chosen_name))
-        name.remove(chosen_name)
-        repeat()
-
-print("Commands:\n1 - repeat until last person\n2 - repeat forever")
-cmd = input("choice [1/2]: ")
-
-# repeat until last person
-if (int(cmd) == 1):
-    repeat_until_last()
-# repeat forever
-elif (int(cmd) == 2):
-    repeat_forever()
-# error handling for invalid input
-else:
-    print("Error: Invalid Choice!")
+    args = parser.parse_args()
+    draw_name(get_names(args.file), args.repeat, args.display)
