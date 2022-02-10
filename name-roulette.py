@@ -7,9 +7,6 @@ import os
 import argparse
 import pandas as pd
 
-again = 0
-sleep_time = 1
-
 def loading_animation():
     done = False
     def animate():
@@ -21,7 +18,7 @@ def loading_animation():
             time.sleep(0.1)
     t = threading.Thread(target=animate)
     t.start()
-    time.sleep(sleep_time)
+    time.sleep(1)
     done = True
 
 def clear_terminal():
@@ -38,21 +35,21 @@ def ask_choose_again():
         print("Invalid input: type Y for yes or N for no.")
         ask_choose_again()
 
-def draw_name(df, repeat, display):
+def draw_name(df, amount, repeat, display):
     while not df.empty:
         clear_terminal()
         loading_animation()
         clear_terminal()
-        chosen_name = df.sample()
-        chosen_name = df.loc[chosen_name.index[0], 'Names']
-        if not repeat:
-            try:
-                df = df[df["Names"].str.contains(chosen_name)==False]
-            except NameError:
-                print(NameError)
+        chosen_name = []
+        for i in range(0, amount):
+            if df.empty:
+                break
+            chosen_name.append(df.loc[df.sample().index[0], 'Names'])
+            if not repeat:
+                df = df[df["Names"].str.contains(chosen_name[i])==False]
         if display and not df.empty:
             print(df)
-        cowsay.tux(chosen_name)
+        cowsay.tux(', '.join(chosen_name))
         print('')
         ask_choose_again()
     else:
@@ -81,6 +78,15 @@ if __name__=="__main__":
     )
 
     parser.add_argument(
+        'amount',
+        metavar='amount',
+        nargs='?',
+        default=1,
+        type=int,
+        help='The number of people to be chosen randomly.'
+    )
+
+    parser.add_argument(
         '--repeat', 
         action="store_true", 
         required=False,
@@ -95,4 +101,4 @@ if __name__=="__main__":
     )
 
     args = parser.parse_args()
-    draw_name(get_names(args.file), args.repeat, args.display)
+    draw_name(get_names(args.file), args.amount, args.repeat, args.display)
