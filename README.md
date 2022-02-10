@@ -35,7 +35,7 @@ A simple command line program that randomly selects a name from a list.
 
 > Prerequisite: Python 3 must be installed.
 
-- Download the latest release or clone the repository
+- Download the latest [release](https://github.com/joiellantero/name-roulette/releases/tag/v.2.1.0) or clone the repository
   
     ```shell
     git clone https://github.com/joiellantero/name-roulette.git
