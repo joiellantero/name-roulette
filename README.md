@@ -58,6 +58,38 @@ A simple command line program which randomly selects a name from a list.
     python3 name-roulette.py name.csv --repeat --display
     ```
 
+## Names Database
+
+The names to be used in the program are read from either a `.csv` or `.txt` file. This repository includes examples of the files mentioned. Proper formatting should be followed in creating these files. 
+
+An example formatting for the `.csv` file is shown below. Notice that there is no column name and each name is entered in a new row under one column.
+
+> names.csv
+
+```text
+eren
+mikasa
+armin
+levi
+hange
+erwin
+sasha
+jean
+```
+
+An example formatting for the `.txt` file. Notice that each name is entered in a new line.
+
+> names.txt
+
+```text
+connie
+historia
+annie
+reiner
+pieck
+falco
+```
+
 ## Author
 
 - Joie Llantero
