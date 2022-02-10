@@ -22,13 +22,14 @@ A simple command line program that randomly selects a name from a list.
 
     | Positional Arguments        | Desciption     |
     |--------------|----------------|
-    | filename   | A `.csv` or `.txt` file containing the list of names. The names should be separated by new line. See [Names Database](#names-database) for examples.|
-    | amount   | The number of random people to be chosen in one go.|
+    | filename     | A `.csv` or `.txt` file containing the list of names. The names should be separated by new line. See [Names Database](#names-database) for examples.|
+    | amount       | The number of random people to be chosen in one go.|
 
     | Optional Arguments        | Desciption     |
     |--------------|----------------|
     | `--repeat`   | With flag: select a random name (without removing it from the list) forever. <br> Without flag (default): select a random name (and remove it from the list) until the list is empty. |
     | `--display`  | Show the list of names. |
+    | `--cowsay`  | Show chosen name/s with cowsay illustration. |
 
 ## Getting Started
 
@@ -72,7 +73,7 @@ A simple command line program that randomly selects a name from a list.
     > Format: `python3 name-roulette.py <fileName> <amount> <flags>`
 
     ```shell
-    python3 name-roulette.py name.csv 1 --repeat --display
+    python3 name-roulette.py name.csv 3 --repeat --display
     ```
 
 ## Names Database

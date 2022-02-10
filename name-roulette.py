@@ -25,17 +25,17 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def ask_choose_again():
-    again = input("Choose again? [Y/N]: ")
+    again = input("\nChoose again? [Y/N]: ")
     if (again == 'y' or again == 'Y'):
         return
     elif again == 'n' or again == 'N':
         print("\nProgram ended.")
         sys.exit(0)
     else:
-        print("Invalid input: type Y for yes or N for no.")
+        print("\nInvalid input: type Y for yes or N for no.")
         ask_choose_again()
 
-def draw_name(df, amount, repeat, display):
+def draw_name(df, amount, repeat, display, acowsay):
     while not df.empty:
         clear_terminal()
         loading_animation()
@@ -49,8 +49,10 @@ def draw_name(df, amount, repeat, display):
                 df = df[df["Names"].str.contains(chosen_name[i])==False]
         if display and not df.empty:
             print(df)
-        cowsay.tux(', '.join(chosen_name))
-        print('')
+        if acowsay:
+            cowsay.tux(', '.join(chosen_name))
+        else: 
+            print(f"\nChosen Name/s: {', '.join(chosen_name)}")
         ask_choose_again()
     else:
         print("\nProgram Ended.\nList of names is now empty.")
@@ -100,5 +102,12 @@ if __name__=="__main__":
         help='Show the list of names.'
     )
 
+    parser.add_argument(
+        '--cowsay', 
+        action="store_true", 
+        required=False,
+        help='Show chosen name/s with cowsay illustration.'
+    )
+
     args = parser.parse_args()
-    draw_name(get_names(args.file), args.amount, args.repeat, args.display)
+    draw_name(get_names(args.file), args.amount, args.repeat, args.display, args.cowsay)
