@@ -13,7 +13,6 @@
 A simple command line program that randomly selects a name from a list.
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-![Downloads](https://img.shields.io/github/downloads/joiellantero/name-roulette/total?style=flat-square)
 
 ## Features
 
