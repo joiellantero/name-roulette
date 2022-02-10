@@ -72,7 +72,7 @@ A simple command line program that randomly selects a name from a list.
     > Format: `python3 name-roulette.py <fileName> <amount> <flags>`
 
     ```shell
-    python3 name-roulette.py name.csv 3 --cowsay
+    python3 name-roulette.py names.csv 3 --cowsay
     ```
 
 ## Names Database
