@@ -1,14 +1,25 @@
+```text
+ ________   ________  _____ ______   _______           ________  ________  ___  ___  ___       _______  _________  _________  _______      
+|\   ___  \|\   __  \|\   _ \  _   \|\  ___ \         |\   __  \|\   __  \|\  \|\  \|\  \     |\  ___ \|\___   ___\\___   ___\\  ___ \     
+\ \  \\ \  \ \  \|\  \ \  \\\__\ \  \ \   __/|        \ \  \|\  \ \  \|\  \ \  \\\  \ \  \    \ \   __/\|___ \  \_\|___ \  \_\ \   __/|    
+ \ \  \\ \  \ \   __  \ \  \\|__| \  \ \  \_|/__       \ \   _  _\ \  \\\  \ \  \\\  \ \  \    \ \  \_|/__  \ \  \     \ \  \ \ \  \_|/__  
+  \ \  \\ \  \ \  \ \  \ \  \    \ \  \ \  \_|\ \       \ \  \\  \\ \  \\\  \ \  \\\  \ \  \____\ \  \_|\ \  \ \  \     \ \  \ \ \  \_|\ \ 
+   \ \__\\ \__\ \__\ \__\ \__\    \ \__\ \_______\       \ \__\\ _\\ \_______\ \_______\ \_______\ \_______\  \ \__\     \ \__\ \ \_______\
+    \|__| \|__|\|__|\|__|\|__|     \|__|\|_______|        \|__|\|__|\|_______|\|_______|\|_______|\|_______|   \|__|      \|__|  \|_______|
+```
+
 # Name Roulette
-A simple command line program which randomly selects a name from a list.
+
+A simple command line program that randomly selects a name from a list.
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 ![Downloads](https://img.shields.io/github/downloads/joiellantero/name-roulette/total?style=flat-square)
 
 ## Features
 
-1. Read `.csv` and `.txt` files.
+1. Randomly choose a name from a `.csv` or `.txt` file.
 2. Settings
-   
+
     | Flags        | Desciption     |
     |--------------|----------------|
     | `--repeat`   | With flag: select a random name (without removing it from the list) forever. <br> Without flag: select a random name (and remove it from the list) until the list is empty. |
