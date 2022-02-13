@@ -34,7 +34,7 @@ A simple command line program that randomly selects a name from a list.
 
 > Prerequisite: Python 3 must be installed.
 
-- Download the latest [release](https://github.com/joiellantero/name-roulette/releases/tag/v.2.1.0) or clone the repository
+- Download the latest [release](https://github.com/joiellantero/name-roulette/releases/tag/v2.1.0) or clone the repository
   
     ```shell
     git clone https://github.com/joiellantero/name-roulette.git
@@ -72,7 +72,7 @@ A simple command line program that randomly selects a name from a list.
     > Format: `python3 name-roulette.py <fileName> <amount> <flags>`
 
     ```shell
-    python3 name-roulette.py name.csv 3 --repeat --display
+    python3 name-roulette.py names.csv 3 --cowsay
     ```
 
 ## Names Database
