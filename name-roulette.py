@@ -51,7 +51,7 @@ def draw_name(df, amount, repeat, display, acowsay):
             print(df)
         if acowsay:
             cowsay.tux(', '.join(chosen_name))
-        else: 
+        else:
             print(f"\nChosen Name/s: {', '.join(chosen_name)}")
         ask_choose_again()
     else:
@@ -70,12 +70,12 @@ def get_names(filename):
         sys.exit(0)
 
 if __name__=="__main__":
-    parser = argparse.ArgumentParser(description='Name Roulette v2.0.0. A random picker for names. A digital terminal script based on the game spin the bottle.')
+    parser = argparse.ArgumentParser(description='Name Roulette v2.1.0. A random picker for names. A digital terminal script based on the game spin the bottle.')
 
     parser.add_argument(
-        'file', 
-        metavar='filename', 
-        type=str, 
+        'file',
+        metavar='filename',
+        type=str,
         help='Files accepted are csv and txt files. Add the filename of the text or csv file containing the names as an argument, e.g., fileName.csv. Each name should be entered in a new line. You may refer to the README.md to see more examples.'
     )
 
@@ -89,22 +89,22 @@ if __name__=="__main__":
     )
 
     parser.add_argument(
-        '--repeat', 
-        action="store_true", 
+        '--repeat',
+        action="store_true",
         required=False,
         help='Loop through the names of the players forever. Not including the --repeat flag will remove the player from the list once they are chosen.'
     )
 
     parser.add_argument(
-        '--display', 
-        action="store_true", 
+        '--display',
+        action="store_true",
         required=False,
         help='Show the list of names.'
     )
 
     parser.add_argument(
-        '--cowsay', 
-        action="store_true", 
+        '--cowsay',
+        action="store_true",
         required=False,
         help='Show chosen name/s with cowsay illustration.'
     )
