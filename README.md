@@ -107,6 +107,10 @@ pieck
 falco
 ```
 
+## The Future
+
+- I am currently developing an open-source website version of this and I will make the repository public once I finish it. I'm building it using ReactJS and Tailwind CSS. 
+
 ## Author
 
 - Joie Llantero
