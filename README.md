@@ -108,6 +108,6 @@ falco
 ```
 
 ## Tip
-<a href="https://example.com">
+<a href="https://ko-fi.com/joiel">
   <img src="assets/kofi_button_stroke.png" alt="Send a tip on Ko-Fi" width="180">
 </a>
