@@ -1,9 +1,9 @@
 ```text
- ________   ________  _____ ______   _______           ________  ________  ___  ___  ___       _______  _________  _________  _______      
-|\   ___  \|\   __  \|\   _ \  _   \|\  ___ \         |\   __  \|\   __  \|\  \|\  \|\  \     |\  ___ \|\___   ___\\___   ___\\  ___ \     
-\ \  \\ \  \ \  \|\  \ \  \\\__\ \  \ \   __/|        \ \  \|\  \ \  \|\  \ \  \\\  \ \  \    \ \   __/\|___ \  \_\|___ \  \_\ \   __/|    
- \ \  \\ \  \ \   __  \ \  \\|__| \  \ \  \_|/__       \ \   _  _\ \  \\\  \ \  \\\  \ \  \    \ \  \_|/__  \ \  \     \ \  \ \ \  \_|/__  
-  \ \  \\ \  \ \  \ \  \ \  \    \ \  \ \  \_|\ \       \ \  \\  \\ \  \\\  \ \  \\\  \ \  \____\ \  \_|\ \  \ \  \     \ \  \ \ \  \_|\ \ 
+ ________   ________  _____ ______   _______           ________  ________  ___  ___  ___       _______  _________  _________  _______
+|\   ___  \|\   __  \|\   _ \  _   \|\  ___ \         |\   __  \|\   __  \|\  \|\  \|\  \     |\  ___ \|\___   ___\\___   ___\\  ___ \
+\ \  \\ \  \ \  \|\  \ \  \\\__\ \  \ \   __/|        \ \  \|\  \ \  \|\  \ \  \\\  \ \  \    \ \   __/\|___ \  \_\|___ \  \_\ \   __/|
+ \ \  \\ \  \ \   __  \ \  \\|__| \  \ \  \_|/__       \ \   _  _\ \  \\\  \ \  \\\  \ \  \    \ \  \_|/__  \ \  \     \ \  \ \ \  \_|/__
+  \ \  \\ \  \ \  \ \  \ \  \    \ \  \ \  \_|\ \       \ \  \\  \\ \  \\\  \ \  \\\  \ \  \____\ \  \_|\ \  \ \  \     \ \  \ \ \  \_|\ \
    \ \__\\ \__\ \__\ \__\ \__\    \ \__\ \_______\       \ \__\\ _\\ \_______\ \_______\ \_______\ \_______\  \ \__\     \ \__\ \ \_______\
     \|__| \|__|\|__|\|__|\|__|     \|__|\|_______|        \|__|\|__|\|_______|\|_______|\|_______|\|_______|   \|__|      \|__|  \|_______|
 ```
@@ -35,7 +35,7 @@ A simple command line program that randomly selects a name from a list.
 > Prerequisite: Python 3 must be installed.
 
 - Download the latest [release](https://github.com/joiellantero/name-roulette/releases/tag/v2.1.0) or clone the repository
-  
+
     ```shell
     git clone https://github.com/joiellantero/name-roulette.git
     ```
@@ -77,7 +77,7 @@ A simple command line program that randomly selects a name from a list.
 
 ## Names Database
 
-The names to be used in the program are read from either a `.csv` or `.txt` file. This repository includes examples of the files mentioned. Proper formatting should be followed in creating these files. 
+The names to be used in the program are read from either a `.csv` or `.txt` file. This repository includes examples of the files mentioned. Proper formatting should be followed in creating these files.
 
 An example formatting for the `.csv` file is shown below. Notice that there is no column name and each name is entered in a new row under one column.
 
@@ -107,14 +107,5 @@ pieck
 falco
 ```
 
-## The Future
-
-- I'm currently developing an open-source website version of this and I'm building it using ReactJS and Tailwind CSS. 
-
-## Author
-
-- Joie Llantero
-
-## License
-
-- [MIT license](http://opensource.org/licenses/mit-license.php)
+## Tip
+[![Send a tip on Ko-Fi](assets/kofi_button_stroke.png)](https://ko-fi.com/joiel)
